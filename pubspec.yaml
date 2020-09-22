@@ -1,8 +1,7 @@
-name: image_slider
+name: image_slider_button
 description: A slider with a image.
 version: 0.0.1
-author: Jônatas Dourado Porto
-homepage:
+repository: https://github.com/JonatasDPorto/image_slider
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
