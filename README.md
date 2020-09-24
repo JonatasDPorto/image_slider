@@ -62,3 +62,26 @@ ImageSlider(
 ),
 ```
 
+#### Style:
+
+```dart
+ImageSlider(
+  style: ImageSliderStyleOptions(
+    style: ImageSliderStyleEnum.DEFAULT,
+    width: 200,
+    imageWidth: 40,
+    color: Colors.grey,
+    borderColor: Colors.white,
+  ),
+  images: [
+    AssetImage('assets/images/br.png'),
+    AssetImage('assets/images/jp.png'),
+    AssetImage('assets/images/ca.png'),
+  ],
+),
+```
+##### ImageSliderStyleEnum:
+* DEFAULT
+* BORDERLESS
+* NODE
+* NODE_BORDERLESS
