@@ -49,6 +49,22 @@ class ImageSliderStyle {
           anchorWidth: imgWidth / 2,
         );
         break;
+      case ImageSliderStyleEnum.LINE:
+        return ImageSliderStyle._(
+          imageWidth: imgWidth,
+          borderWidth: 5,
+          strokeWidth: 5,
+          anchorWidth: 5,
+        );
+        break;
+      case ImageSliderStyleEnum.LINE_BORDERLESS:
+        return ImageSliderStyle._(
+          imageWidth: imgWidth,
+          borderWidth: 0,
+          strokeWidth: 5,
+          anchorWidth: 5,
+        );
+        break;
       default:
         return ImageSliderStyle(ImageSliderStyleEnum.DEFAULT, imgWidth);
     }

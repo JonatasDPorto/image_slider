@@ -1,3 +1,8 @@
+## [0.0.4] - 24/09/2020.
+
+* One import only.
+* Add new Styles - LINE, LINE_BORDERLESS
+
 ## [0.0.3] - 23/09/2020.
 
 * HOTFIX

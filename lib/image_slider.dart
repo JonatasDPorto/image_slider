@@ -2,8 +2,8 @@ library image_slider;
 
 import 'package:flutter/material.dart';
 import 'package:image_slider_button/image_slider_style.dart';
-
 import 'image_slider_painter.dart';
+export 'package:image_slider_button/image_slider_style.dart';
 
 class ImageSlider extends StatefulWidget {
   final Function onStart;

@@ -8,7 +8,7 @@ A Slider with images.
 Add this to your package's pubspec.yaml file:
 ```yaml
 dependencies:
-  image_slider_button: ^0.0.3
+  image_slider_button: ^0.0.4
 ```
 2. Install it
 You can install packages from the command line:
@@ -27,7 +27,6 @@ Alternatively, your editor might support pub get or flutter pub get. Check the d
 Now in your Dart code, you can use:
 ```dart
 import 'package:image_slider_button/image_slider.dart';
-import 'package:image_slider_button/image_slider_painter.dart';
 ```
 #### Create a Image Slider:
 Create a Image Slider with an array of Images.
@@ -85,6 +84,7 @@ ImageSlider(
 * BORDERLESS
 * NODE
 * NODE_BORDERLESS
-
+* LINE
+* LINE_BORDERLESS
 
 Link to repository: [Repository](https://github.com/JonatasDPorto/image_slider)

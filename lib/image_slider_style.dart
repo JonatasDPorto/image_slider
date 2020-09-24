@@ -7,6 +7,8 @@ enum ImageSliderStyleEnum {
   BORDERLESS,
   NODE,
   NODE_BORDERLESS,
+  LINE,
+  LINE_BORDERLESS,
 }
 
 class ImageSliderStyleOptions {
