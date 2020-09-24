@@ -33,6 +33,5 @@ ImageSlider(
   },
 ),
 ```
-![Brazil](https://github.com/JonatasDPorto/image_slider/blob/master/readme/1.PNG)
-![Japan](https://github.com/JonatasDPorto/image_slider/blob/master/readme/2.png)
-![Canada](https://github.com/JonatasDPorto/image_slider/blob/master/readme/3.png)
+![Example](https://github.com/JonatasDPorto/image_slider/blob/master/readme/example.gif)
+

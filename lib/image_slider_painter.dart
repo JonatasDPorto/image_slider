@@ -44,7 +44,7 @@ class ImageSliderPainter extends CustomPainter {
         borderSliderPainter = Paint()
           ..color = borderColor
           ..style = PaintingStyle.stroke
-          ..strokeWidth = ((imageWidth) + borderWidth),
+          ..strokeWidth = ((imageWidth) + (borderWidth * 2)),
         imagePainter = Paint();
 
   _paintAnchors(Canvas canvas, Size size) {
@@ -55,6 +55,7 @@ class ImageSliderPainter extends CustomPainter {
           (imageWidth / 2) +
           borderWidth;
       canvas.drawCircle(Offset(x, y), anchorWidth, fillPainter);
+      canvas.drawCircle(Offset(x, y), anchorWidth / 10, borderFillPainter);
     }
   }
 
@@ -67,11 +68,10 @@ class ImageSliderPainter extends CustomPainter {
       path.moveTo(start, y);
       path.lineTo(end, y);
       canvas.drawPath(path, borderSliderPainter);
-
-      canvas.drawCircle(Offset(start, y), ((imageWidth + borderWidth) / 2),
+      canvas.drawCircle(Offset(start, y), ((imageWidth / 2) + borderWidth),
           borderFillPainter);
       canvas.drawCircle(
-          Offset(end, y), ((imageWidth + borderWidth) / 2), borderFillPainter);
+          Offset(end, y), ((imageWidth / 2) + borderWidth), borderFillPainter);
     }
   }
 
