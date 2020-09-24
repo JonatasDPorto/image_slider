@@ -1,6 +1,6 @@
 name: image_slider_button
 description: A slider with a image.
-version: 0.0.2
+version: 0.0.3
 repository: https://github.com/JonatasDPorto/image_slider
 
 environment:
