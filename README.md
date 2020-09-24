@@ -1,16 +1,14 @@
 # Image Slider
 A Slider with images.
 
-![Brazil](https://github.com/JonatasDPorto/image_slider/blob/master/readme/1.PNG)
-![Japan](https://github.com/JonatasDPorto/image_slider/blob/master/readme/2.png)
-![Canada](https://github.com/JonatasDPorto/image_slider/blob/master/readme/3.png)
+![Example](https://github.com/JonatasDPorto/image_slider/blob/master/readme/example.gif)
 
 #### Use this package as a library
 1. Depend on it
 Add this to your package's pubspec.yaml file:
 ```yaml
 dependencies:
-  image_slider_button: ^0.0.1
+  image_slider_button: ^0.0.2
 ```
 2. Install it
 You can install packages from the command line:
@@ -63,8 +61,27 @@ ImageSlider(
   },
 ),
 ```
-<<<<<<< HEAD
-![Example](https://github.com/JonatasDPorto/image_slider/blob/master/readme/example.gif)
-=======
->>>>>>> bdabe21aab3957b1cd25a55296502683ff8dccaa
 
+#### Style:
+
+```dart
+ImageSlider(
+  style: ImageSliderStyleOptions(
+    style: ImageSliderStyleEnum.DEFAULT,
+    width: 200,
+    imageWidth: 40,
+    color: Colors.grey,
+    borderColor: Colors.white,
+  ),
+  images: [
+    AssetImage('assets/images/br.png'),
+    AssetImage('assets/images/jp.png'),
+    AssetImage('assets/images/ca.png'),
+  ],
+),
+```
+##### ImageSliderStyleEnum:
+* DEFAULT
+* BORDERLESS
+* NODE
+* NODE_BORDERLESS
