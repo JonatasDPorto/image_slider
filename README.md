@@ -1,9 +1,7 @@
 # Image Slider
 A Slider with images.
 
-![Brazil](https://github.com/JonatasDPorto/image_slider/blob/master/readme/1.PNG)
-![Japan](https://github.com/JonatasDPorto/image_slider/blob/master/readme/2.png)
-![Canada](https://github.com/JonatasDPorto/image_slider/blob/master/readme/3.png)
+![Example](https://github.com/JonatasDPorto/image_slider/blob/master/readme/example.gif)
 
 #### Use this package as a library
 1. Depend on it
@@ -63,8 +61,4 @@ ImageSlider(
   },
 ),
 ```
-<<<<<<< HEAD
-![Example](https://github.com/JonatasDPorto/image_slider/blob/master/readme/example.gif)
-=======
->>>>>>> bdabe21aab3957b1cd25a55296502683ff8dccaa
 
