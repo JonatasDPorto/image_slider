@@ -85,3 +85,6 @@ ImageSlider(
 * BORDERLESS
 * NODE
 * NODE_BORDERLESS
+
+
+Link to repository: [Repository](https://github.com/JonatasDPorto/image_slider)
