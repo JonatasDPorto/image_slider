@@ -9,9 +9,9 @@ class ImageSlider extends StatefulWidget {
   final Function onStart;
   final Function onUpdate;
   final Function onEnd;
-  final ImageSliderStyleOptions style;
+  ImageSliderStyleOptions style;
   final List<ImageProvider> images;
-  const ImageSlider({
+  ImageSlider({
     @required this.images,
     this.onStart,
     this.onUpdate,
@@ -21,6 +21,9 @@ class ImageSlider extends StatefulWidget {
 
   @override
   _ImageSliderState createState() {
+    if (this.style == null) {
+      this.style = ImageSliderStyleOptions(style: ImageSliderStyleEnum.DEFAULT);
+    }
     return _ImageSliderState(
         style.options.imageWidth, style.options.borderWidth, style.width);
   }

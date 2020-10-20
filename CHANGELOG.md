@@ -1,3 +1,7 @@
+## [0.0.5] - 19/10/2020.
+
+* Error fixed with the styles option.
+
 ## [0.0.4] - 24/09/2020.
 
 * One import only.
