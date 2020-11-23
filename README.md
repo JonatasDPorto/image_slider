@@ -8,7 +8,7 @@ A Slider with images.
 Add this to your package's pubspec.yaml file:
 ```yaml
 dependencies:
-  image_slider_button: ^0.0.5
+  image_slider_button: ^0.0.6
 ```
 2. Install it
 You can install packages from the command line:

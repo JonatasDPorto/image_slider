@@ -11,8 +11,10 @@ class ImageSlider extends StatefulWidget {
   final Function onEnd;
   ImageSliderStyleOptions style;
   final List<ImageProvider> images;
+  final int startPosition;
   ImageSlider({
     @required this.images,
+    this.startPosition = 0,
     this.onStart,
     this.onUpdate,
     this.onEnd,
@@ -24,22 +26,37 @@ class ImageSlider extends StatefulWidget {
     if (this.style == null) {
       this.style = ImageSliderStyleOptions(style: ImageSliderStyleEnum.DEFAULT);
     }
-    return _ImageSliderState(
-        style.options.imageWidth, style.options.borderWidth, style.width);
+    return _ImageSliderState();
   }
 }
 
 class _ImageSliderState extends State<ImageSlider> {
   double dragPosition;
 
-  double dragPercentage = 0.0;
+  double dragPercentage;
 
-  int currentPosition = 0;
+  int currentPosition;
   double width;
-  bool widthIsChanged = false;
-  _ImageSliderState(double imageWidth, double borderWidth, double w)
-      : dragPosition = (imageWidth / 2) + borderWidth,
-        width = w;
+  bool widthIsChanged;
+
+  @override
+  void initState() {
+    width = widget.style.width;
+    currentPosition = widget.startPosition;
+    if (currentPosition < 0 || currentPosition >= widget.images.length) {
+      currentPosition = 0;
+    }
+    dragPosition = widget.style.options.borderWidth +
+        (widget.style.options.imageWidth / 2) +
+        currentPosition *
+            (width -
+                widget.style.options.imageWidth -
+                (widget.style.options.borderWidth * 2)) /
+            (widget.images.length - 1);
+    dragPercentage = dragPosition / width;
+    widthIsChanged = false;
+    super.initState();
+  }
 
   void _updateDragPosition(Offset offset) {
     double newDragPosition = 0;

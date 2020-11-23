@@ -1,3 +1,7 @@
+## [0.0.6] - 22/11/2020.
+
+* Add start position.
+
 ## [0.0.5] - 19/10/2020.
 
 * Error fixed with the styles option.
