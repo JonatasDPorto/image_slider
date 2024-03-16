@@ -19,18 +19,16 @@ class ImageSliderPainter extends CustomPainter {
   final Paint borderSliderPainter;
   final Paint imagePainter;
 
-  int currentPosition;
-
   ImageSliderPainter({
-    @required this.sliderPosition,
-    @required this.sliderPercentage,
-    @required this.color,
-    @required this.imageWidth,
-    @required this.borderColor,
-    @required this.strokeWidth,
-    @required this.anchorWidth,
-    @required this.borderWidth,
-    @required this.len,
+    required this.sliderPosition,
+    required this.sliderPercentage,
+    required this.color,
+    required this.imageWidth,
+    required this.borderColor,
+    required this.strokeWidth,
+    required this.anchorWidth,
+    required this.borderWidth,
+    required this.len,
   })  : fillPainter = Paint()
           ..color = color
           ..style = PaintingStyle.fill,

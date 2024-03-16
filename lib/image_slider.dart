@@ -6,14 +6,14 @@ import 'image_slider_painter.dart';
 export 'package:image_slider_button/image_slider_style.dart';
 
 class ImageSlider extends StatefulWidget {
-  final Function onStart;
-  final Function onUpdate;
-  final Function onEnd;
-  ImageSliderStyleOptions style;
+  final Function? onStart;
+  final Function? onUpdate;
+  final Function? onEnd;
+  late ImageSliderStyleOptions? style;
   final List<ImageProvider> images;
   final int startPosition;
   ImageSlider({
-    @required this.images,
+    required this.images,
     this.startPosition = 0,
     this.onStart,
     this.onUpdate,
@@ -31,27 +31,27 @@ class ImageSlider extends StatefulWidget {
 }
 
 class _ImageSliderState extends State<ImageSlider> {
-  double dragPosition;
+  late double dragPosition;
 
-  double dragPercentage;
+  late double dragPercentage;
 
-  int currentPosition;
-  double width;
-  bool widthIsChanged;
+  late int currentPosition;
+  late double width;
+  late bool widthIsChanged;
 
   @override
   void initState() {
-    width = widget.style.width;
+    width = widget.style!.width;
     currentPosition = widget.startPosition;
     if (currentPosition < 0 || currentPosition >= widget.images.length) {
       currentPosition = 0;
     }
-    dragPosition = widget.style.options.borderWidth +
-        (widget.style.options.imageWidth / 2) +
+    dragPosition = widget.style!.options.borderWidth +
+        (widget.style!.options.imageWidth / 2) +
         currentPosition *
             (width -
-                widget.style.options.imageWidth -
-                (widget.style.options.borderWidth * 2)) /
+                widget.style!.options.imageWidth -
+                (widget.style!.options.borderWidth * 2)) /
             (widget.images.length - 1);
     dragPercentage = dragPosition / width;
     widthIsChanged = false;
@@ -62,17 +62,17 @@ class _ImageSliderState extends State<ImageSlider> {
     double newDragPosition = 0;
 
     if (offset.dx <=
-        widget.style.options.borderWidth +
-            (widget.style.options.imageWidth / 2)) {
-      newDragPosition = widget.style.options.borderWidth +
-          (widget.style.options.imageWidth / 2);
+        widget.style!.options.borderWidth +
+            (widget.style!.options.imageWidth / 2)) {
+      newDragPosition = widget.style!.options.borderWidth +
+          (widget.style!.options.imageWidth / 2);
     } else if (offset.dx >=
         width -
-            widget.style.options.borderWidth -
-            (widget.style.options.imageWidth / 2)) {
+            widget.style!.options.borderWidth -
+            (widget.style!.options.imageWidth / 2)) {
       newDragPosition = width -
-          widget.style.options.borderWidth -
-          (widget.style.options.imageWidth / 2);
+          widget.style!.options.borderWidth -
+          (widget.style!.options.imageWidth / 2);
     } else {
       newDragPosition = offset.dx;
     }
@@ -91,17 +91,17 @@ class _ImageSliderState extends State<ImageSlider> {
       if (i == len) {
         newCurrentPosition = i - 1;
         newDragPosition = width -
-            (widget.style.options.imageWidth / 2) -
-            widget.style.options.borderWidth;
+            (widget.style!.options.imageWidth / 2) -
+            widget.style!.options.borderWidth;
         break;
       }
       if (dragPosition < ((width * (i + 1)) / len)) {
         newCurrentPosition = i;
-        newDragPosition = widget.style.options.borderWidth +
-            (widget.style.options.imageWidth / 2) +
+        newDragPosition = widget.style!.options.borderWidth +
+            (widget.style!.options.imageWidth / 2) +
             (((width -
-                        widget.style.options.imageWidth -
-                        (widget.style.options.borderWidth * 2)) *
+                        widget.style!.options.imageWidth -
+                        (widget.style!.options.borderWidth * 2)) *
                     (i)) /
                 (len - 1));
 
@@ -117,27 +117,27 @@ class _ImageSliderState extends State<ImageSlider> {
   }
 
   void _onDragUpdate(BuildContext context, DragUpdateDetails update) {
-    RenderBox box = context.findRenderObject();
+    RenderBox box = context.findRenderObject() as RenderBox;
     Offset offset = box.globalToLocal(update.globalPosition);
     _updateDragPosition(offset);
     if (widget.onUpdate != null) {
-      widget.onUpdate(dragPercentage);
+      widget.onUpdate!(dragPercentage);
     }
   }
 
   void _onDragStart(BuildContext context, DragStartDetails start) {
-    RenderBox box = context.findRenderObject();
+    RenderBox box = context.findRenderObject() as RenderBox;
     Offset offset = box.globalToLocal(start.globalPosition);
     _updateDragPosition(offset);
     if (widget.onStart != null) {
-      widget.onStart();
+      widget.onStart!();
     }
   }
 
   void _onDragEnd(BuildContext context, DragEndDetails end) {
     _updateDragPositionEnd();
     if (widget.onEnd != null) {
-      widget.onEnd(currentPosition);
+      widget.onEnd!(currentPosition);
     }
   }
 
@@ -146,36 +146,36 @@ class _ImageSliderState extends State<ImageSlider> {
     return LayoutBuilder(builder: (context, constraint) {
       if (!widthIsChanged && width > constraint.maxWidth) {
         width =
-            constraint.maxWidth - (widget.style.options.borderWidth * 2) - 1;
+            constraint.maxWidth - (widget.style!.options.borderWidth * 2) - 1;
       }
       return Container(
-        margin: EdgeInsets.all(widget.style.options.borderWidth + 1),
+        margin: EdgeInsets.all(widget.style!.options.borderWidth + 1),
         child: GestureDetector(
           child: Stack(
             children: <Widget>[
               Container(
                 width: width,
-                height: widget.style.options.height,
+                height: widget.style!.options.height,
                 child: CustomPaint(
                   painter: ImageSliderPainter(
-                    color: widget.style.color,
+                    color: widget.style!.color,
                     sliderPercentage: dragPercentage,
                     sliderPosition: dragPosition,
                     len: widget.images.length - 1,
-                    strokeWidth: widget.style.options.strokeWidth,
-                    anchorWidth: widget.style.options.anchorWidth,
-                    imageWidth: widget.style.options.imageWidth,
-                    borderWidth: widget.style.options.borderWidth,
-                    borderColor: widget.style.borderColor,
+                    strokeWidth: widget.style!.options.strokeWidth,
+                    anchorWidth: widget.style!.options.anchorWidth,
+                    imageWidth: widget.style!.options.imageWidth,
+                    borderWidth: widget.style!.options.borderWidth,
+                    borderColor: widget.style!.borderColor,
                   ),
                 ),
               ),
               Transform.translate(
                 offset: Offset(
-                    dragPosition - (widget.style.options.imageWidth / 2), 0.0),
+                    dragPosition - (widget.style!.options.imageWidth / 2), 0.0),
                 child: Container(
-                  width: widget.style.options.imageWidth,
-                  height: widget.style.options.imageWidth,
+                  width: widget.style!.options.imageWidth,
+                  height: widget.style!.options.imageWidth,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
