@@ -1,3 +1,7 @@
+## [3.1.1] - 28/01/2025
+
+* Fix README image URL to use raw.githubusercontent.com for proper display on pub.dev
+
 ## [3.1.0] - 28/01/2025
 
 * Add grayscale images feature: non-selected images now appear in grayscale at their anchor positions
