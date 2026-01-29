@@ -1,3 +1,9 @@
+## [3.1.0] - 28/01/2025
+
+* Add grayscale images feature: non-selected images now appear in grayscale at their anchor positions
+* Improve visual feedback: all images are visible, with selected image in color and others in grayscale
+* Optimize image loading: all images are preloaded for better performance
+
 ## [0.0.6] - 22/11/2020.
 
 * Add start position.

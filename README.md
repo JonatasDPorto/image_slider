@@ -1,14 +1,14 @@
 # Image Slider
 A Slider with images.
 
-![Example](https://github.com/JonatasDPorto/image_slider/blob/master/readme/example.gif)
+![Example](https://github.com/JonatasDPorto/image_slider/blob/master/readme/example.png)
 
 #### Use this package as a library
 1. Depend on it
 Add this to your package's pubspec.yaml file:
 ```yaml
 dependencies:
-  image_slider_button: ^0.0.6
+  image_slider_button: ^3.1.0
 ```
 2. Install it
 You can install packages from the command line:
